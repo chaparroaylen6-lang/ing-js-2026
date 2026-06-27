@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Formulario</title>
+</head>
+<body>
+    <div class="contenedor">
+     <h1> Validación de datos antes de enviarlos</h1>
+    </div>
+ 
+<main class="contenedor">
+  <form id="formulario" class="formulario" onsubmit="return false;">
+    <table class="tabla">
+      <tr class="campo">
+        <td>
+          <label id="lbldni" for="dni">DNI: </label>
+        </td>
+        <td>
+          <input class="control" type="number" name="dni" id="dni" placeholder="DNI"><br>
+        </td>
+      </tr>
+      <tr class="campo">
+        <td>
+          <label for="nombre">Nombre: </label>
+        </td>
+        <td>
+          <input class="control" type="text" name="nombre" id="nombre" maxlength="50" placeholder="Nombre" ><br>
+        </td>
+      </tr>
+      <tr class="campo">
+        <td>
+          <label>Apellido: </label>
+        </td>
+        <td>
+          <input class="control" type="text" name="apellido" id="apellido" maxlength="50" placeholder="Apellido"><br>
+        </td>
+      </tr>
+      <tr class="campo">
+        <td>
+          <label>E-Mail:</label>
+        </td>
+        <td>
+          <input class="control" type="email" name="email" id="email" maxlength="150" placeholder="e-mail"><br>
+        </td>
+      </tr>
+    </table>
+    <br/>
+    <div class="contenedor">
+     <button class="boton"  id="btnGuardar"> Guardar</button>
+    </div>
+  </form>
+</main>
+  <script src="validacion.js"></script>
+</body>
+</html>

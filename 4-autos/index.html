@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Concesionaria de autos</title>
+</head>
+</style>
+</head>
+<body>
+<div id="divform">
+<center>
+<h1 id="titulo"> Nuevo Coche</h1>
+<table >
+<tr>
+    <td>Marca</td>
+    <td><input class="control" type="text" id="marca">
+        <input type="hidden" id="id">
+    </td>
+</tr>
+<tr>
+    <td>Modelo</td>
+    <td><input class="control" type="text" id="modelo"></td>
+</tr>
+<tr>
+    <td>A&ntilde;o</td>
+    <td><input class="control" type="text" id="ano"></td>
+</tr>
+<tr>
+    <td>Combustible</td>
+    <td><input class="control" type="text" id="combustible"></td>
+</tr>
+<tr>
+    <td>Precio</td>
+    <td><input class="control" type="text" id="precio"></td>
+</tr>
+</table>
+<button id="btngrabar"> Grabar</button>
+<button id="btncancelar"> Cancelar</button>
+</center>
+</div>
+<div id="divlista">
+<h1> Listado <button id="btnadd"> Cargar Nuevo </button> </h1>
+<table border="1" class="tbllista">
+<caption>Autos</caption>
+<thead>
+<tr>
+    <th>Marca</th>
+    <th>Modelo</th>
+    <th>A&ntilde;o</th>
+    <th>Combustible</th>
+    <th>Precio</th>
+</tr>
+</thead>
+<tbody id="listado">
+<tr>
+    <td colspan="5">No hay autos que mostrar</td>
+</tr>
+</tbody>
+</table>
+</div>
+<script src="js.js"></script>
+</body>
+</html>

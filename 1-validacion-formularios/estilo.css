@@ -1,0 +1,307 @@
+/* =========================================================
+   VARIABLES GLOBALES - Paleta de colores
+   ========================================================= */
+:root {
+  --frosted-blue: #7bdff2ff;
+  --icy-aqua: #b2f7efff;
+  --mint-cream: #eff7f6ff;
+  --petal-frost: #f7d6e0ff;
+  --blush-pop: #f2b5d4ff;
+
+  --texto-oscuro: #2d3142;
+  --texto-suave: #5c6178;
+  --blanco: #ffffff;
+
+  --sombra-suave: 0 8px 20px rgba(123, 223, 242, 0.25);
+  --sombra-hover: 0 14px 30px rgba(242, 181, 212, 0.35);
+  --radio-borde: 18px;
+
+  --transicion: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* =========================================================
+   RESET BÁSICO
+   ========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Segoe UI", "Poppins", system-ui, sans-serif;
+  background: linear-gradient(135deg, var(--mint-cream), var(--icy-aqua), var(--petal-frost));
+  background-attachment: fixed;
+  color: var(--texto-oscuro);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   ANIMACIONES (@keyframes)
+   ========================================================= */
+
+/* Entrada general: aparece y sube suavemente */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Entrada con leve "bounce" para el título */
+@keyframes bounceIn {
+  0% { opacity: 0; transform: scale(0.85) translateY(-15px); }
+  60% { opacity: 1; transform: scale(1.03) translateY(2px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+/* Brillo pulsante sutil para el botón principal */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(123, 223, 242, 0.5); }
+  50% { box-shadow: 0 0 0 10px rgba(123, 223, 242, 0); }
+}
+
+/* Flotación suave del contenedor del formulario */
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Aparición escalonada de cada fila de campo */
+@keyframes campoIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* =========================================================
+   CONTENEDOR GENERAL
+   ========================================================= */
+.contenedor {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Título principal — animación de entrada con bounce */
+h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--texto-oscuro);
+  background: var(--blanco);
+  padding: 1.1rem 1.8rem;
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-suave);
+  margin-bottom: 1.8rem;
+  animation: bounceIn 0.8s ease-out;
+}
+
+/* =========================================================
+   FORMULARIO (estilo glassmorphism)
+   ========================================================= */
+main.contenedor {
+  width: 100%;
+  max-width: 480px;
+}
+
+.formulario {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--radio-borde);
+  padding: 2rem 1.6rem;
+  box-shadow: var(--sombra-suave);
+  animation: fadeSlideUp 0.7s ease-out, floatCard 6s ease-in-out infinite;
+  animation-delay: 0.1s, 1s; /* la flotación arranca después de la entrada */
+  transition: var(--transicion);
+}
+
+.formulario:hover {
+  box-shadow: var(--sombra-hover);
+}
+
+/* =========================================================
+   TABLA DE CAMPOS -> convertida visualmente en filas flexibles
+   ========================================================= */
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1.1rem;
+  opacity: 0;
+  animation: campoIn 0.6s ease-out forwards;
+}
+
+/* Aparición escalonada de cada fila */
+.campo:nth-of-type(1) { animation-delay: 0.15s; }
+.campo:nth-of-type(2) { animation-delay: 0.3s; }
+.campo:nth-of-type(3) { animation-delay: 0.45s; }
+.campo:nth-of-type(4) { animation-delay: 0.6s; }
+
+.campo td {
+  display: block;
+  width: 100%;
+}
+
+.campo label,
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+  margin-bottom: 0.35rem;
+  padding-left: 0.2rem;
+  transition: color 0.3s ease;
+}
+
+/* =========================================================
+   INPUTS / CONTROLES
+   ========================================================= */
+.control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--texto-oscuro);
+  background: var(--blanco);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: var(--transicion);
+}
+
+.control::placeholder {
+  color: #a9aebd;
+}
+
+/* Micro-interacción: foco con borde de color y leve elevación */
+.control:focus {
+  outline: none;
+  border-color: var(--frosted-blue);
+  box-shadow: 0 0 0 4px rgba(123, 223, 242, 0.25), var(--sombra-suave);
+  transform: translateY(-2px);
+}
+
+/* Cuando el label está justo antes del input enfocado */
+.campo:has(.control:focus) label {
+  color: var(--frosted-blue);
+}
+
+/* Validación visual opcional (si el JS agrega estas clases) */
+.control.valido {
+  border-color: var(--icy-aqua);
+  background: #f3fffd;
+}
+
+.control.invalido {
+  border-color: var(--blush-pop);
+  background: #fff5f9;
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+/* =========================================================
+   BOTÓN PRINCIPAL
+   ========================================================= */
+.boton {
+  margin-top: 0.5rem;
+  padding: 0.85rem 2.4rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--texto-oscuro);
+  background: linear-gradient(135deg, var(--frosted-blue), var(--blush-pop));
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: var(--sombra-suave);
+  transition: var(--transicion);
+  animation: fadeSlideUp 0.8s ease-out 0.8s both, pulseGlow 2.8s ease-in-out infinite 1.6s;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover: escala + elevación + cambio de tono */
+.boton:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: var(--sombra-hover);
+  background: linear-gradient(135deg, var(--blush-pop), var(--frosted-blue));
+}
+
+/* Efecto al hacer clic */
+.boton:active {
+  transform: translateY(-1px) scale(0.97);
+}
+
+/* Brillo deslizante al pasar el mouse (micro-interacción premium) */
+.boton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+
+.boton:hover::before {
+  left: 125%;
+}
+
+/* =========================================================
+   RESPONSIVE - Mobile & Desktop
+   ========================================================= */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.25rem;
+    padding: 0.9rem 1.2rem;
+  }
+
+  .formulario {
+    padding: 1.5rem 1.1rem;
+  }
+
+  .boton {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    padding: 3rem 1rem;
+  }
+
+  .formulario {
+    padding: 2.5rem 2.2rem;
+  }
+}

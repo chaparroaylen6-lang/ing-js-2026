@@ -1,0 +1,200 @@
+:root {
+    /* Paleta de colores tematica Sushi */
+    --bg-light: #FDF9F1;     /* Color arroz */
+    --salmon: #FF7B72;       /* Color salmón principal */
+    --salmon-hover: #E55B52; /* Salmón oscuro para hover */
+    --nori: #2E332E;         /* Color alga nori para textos */
+    --wasabi-light: #E7F0E2; /* Verde suave para fondos secundarios */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, var(--bg-light), #FFF0E6);
+    color: var(--nori);
+    min-height: 100vh;
+}
+
+/* Títulos con fuente redondeada */
+h1, h2, h3 {
+    font-family: 'Fredoka', sans-serif;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 50px 20px 20px;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.banner, .footer-banner {
+    width: 90%;
+    max-width: 700px;
+    height: 140px;
+    margin: auto auto 25px;
+    border-radius: 20px;
+    border: dashed 3px var(--salmon);
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Evita que la imagen sobresalga del borde curvo */
+}
+
+/* ARREGLO DE IMÁGENES DE BANNER */
+.banner img, .footer-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+header h1 {
+    font-size: 50px;
+    color: var(--salmon);
+    letter-spacing: 1px;
+}
+
+header p {
+    color: #666;
+    margin-top: 8px;
+    font-size: 1.1rem;
+}
+
+.social {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: rgba(255, 255, 255, 0.5); 
+}
+
+.social img {
+    width: 80px;
+    transition: transform 0.3s;
+}
+
+.social img:hover {
+    transform: scale(1.2) rotate(10deg);
+}
+
+/* --- CARDS (TARJETAS) --- */
+.cards {
+    width: 90%;
+    max-width: 1000px;
+    margin: 80px auto 40px; /* Aumentamos el margen superior para dar espacio a las imágenes que sobresalen */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px; /* Un poco más de espacio entre tarjetas */
+    padding-bottom: 40px;
+}
+
+.card {
+    background: white;
+    border-radius: 30px;
+    padding: 60px 20px 30px; /* Mucho padding arriba para hacerle lugar al círculo */
+    box-shadow: 0 10px 25px rgba(255, 123, 114, 0.1);
+    transition: all 0.3s ease;
+    border: 3px solid #FFE4E1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative; /* Clave para el efecto 3D */
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(255, 123, 114, 0.2);
+    border-color: var(--salmon);
+}
+
+.sticker {
+    position: absolute; /* Sacamos el círculo del flujo normal */
+    top: -50px; /* Lo empujamos hacia arriba fuera de la tarjeta */
+    left: 50%;
+    transform: translateX(-50%); /* Lo centramos perfectamente */
+    height: 110px; 
+    width: 110px;
+    border-radius: 50%;
+    background: #FFF; /* Fondo blanco */
+    border: 4px solid #FFE4E1; /* Borde haciendo juego con la tarjeta */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.05); /* Sombrita debajo del círculo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* EL TRUCO DE LA IMAGEN */
+.sticker img {
+    width: 150%; /* Hacemos la imagen MÁS GRANDE que el círculo */
+    height: 150%;
+    object-fit: contain;
+    mix-blend-mode: multiply; /* MAGIA: Esto hace que el fondo blanco del JPG desaparezca */
+    animation: float 3s ease-in-out infinite;
+    z-index: 10;
+}
+
+.card h2 {
+    color: var(--salmon);
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.card p {
+    color: #777;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.buttons {
+    margin-top: 25px;
+    width: 100%;
+}
+
+.buttons a {
+    text-decoration: none;
+    background: var(--salmon);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    transition: 0.3s;
+    font-weight: 700;
+    display: inline-block;
+    width: 80%;
+    box-shadow: 0 4px 10px rgba(255, 123, 114, 0.3);
+}
+
+.buttons a:hover {
+    background: var(--salmon-hover);
+    transform: scale(1.05);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px 20px 40px;
+    color: var(--nori);
+    font-weight: 600;
+}
+
+/* ANIMACIONES KEYFRAMES */
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(3deg); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}

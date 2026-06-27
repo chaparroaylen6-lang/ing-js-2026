@@ -1,0 +1,318 @@
+/* ==========================================================================
+   1. VARIABLES DE ENTORNO Y CONFIGURACIÓN GLOBAL
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Paleta de colores solicitada */
+    --vanilla-cream: #f0ead2ff;
+    --tea-green: #dde5b6ff;
+    --muted-olive: #adc178ff;
+    --faded-copper: #a98467ff;
+    --ash-brown: #6c584cff;
+    
+    /* Variaciones translúcidas para efectos UI modernos */
+    --white-glass: rgba(255, 255, 255, 0.85);
+    --shadow-color: rgba(108, 88, 76, 0.12);
+    
+    /* Curvas de animación (Eases) */
+    --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background: linear-gradient(135deg, #fbfaf7 0%, var(--vanilla-cream) 100%);
+    color: var(--ash-brown);
+    min-height: 100vh;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Neutralización elegante de la etiqueta obsoleta <center> */
+center {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+}
+
+/* ==========================================================================
+   2. ESTRUCTURA RECTANGULAR / DISEÑO RESPONSIVO (FLEXBOX & GRID)
+   ========================================================================== */
+@media (min-width: 992px) {
+    body {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        max-width: 1280px;
+        margin: 0 auto;
+        gap: 3rem;
+        padding-top: 5vh;
+    }
+}
+
+/* ==========================================================================
+   3. ANIMACIONES ENTRADA VIA @KEYFRAMES (Efecto Escalonado/Fluid)
+   ========================================================================== */
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes pulseBorder {
+    0% { box-shadow: 0 0 0 0 rgba(173, 193, 120, 0.4); }
+    70% { box-shadow: 0 0 0 6px rgba(173, 193, 120, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(173, 193, 120, 0); }
+}
+
+/* ==========================================================================
+   4. TARJETAS PRINCIPALES (Estilo Soft Glassmorphism)
+   ========================================================================== */
+#divform {
+    background: var(--white-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 2.5rem;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px var(--shadow-color);
+    width: 100%;
+    max-width: 460px;
+    
+    /* Aplicación de Animación de Entrada */
+    animation: slideUpFade 0.7s var(--transition-smooth) forwards;
+}
+
+#divlista {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px var(--shadow-color);
+    width: 100%;
+    max-width: 720px;
+    flex-grow: 1;
+    
+    /* Animación de entrada con Delay para el efecto escalonado */
+    opacity: 0;
+    animation: slideUpFade 0.7s var(--transition-smooth) 0.15s forwards;
+}
+
+/* ==========================================================================
+   5. COMPONENTES DE TEXTO Y TÍTULOS
+   ========================================================================== */
+#titulo, #divlista h1 {
+    color: var(--ash-brown);
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 1.5rem;
+}
+
+#divlista h1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-bottom: 2px solid var(--vanilla-cream);
+    padding-bottom: 1rem;
+}
+
+/* ==========================================================================
+   6. FORMULARIOS & MICRO-INTERACCIONES
+   ========================================================================== */
+#divform table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+}
+
+#divform tr {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.15rem;
+}
+
+#divform td:first-child {
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.4rem;
+    color: var(--faded-copper);
+}
+
+#divform td:last-child {
+    width: 100%;
+}
+
+.control {
+    width: 100%;
+    padding: 0.85rem 1.1rem;
+    border-radius: 14px;
+    border: 2px solid var(--tea-green);
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--ash-brown);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s var(--transition-smooth);
+}
+
+/* Micro-interacción al enfocar inputs */
+.control:focus {
+    outline: none;
+    border-color: var(--muted-olive);
+    background-color: #ffffff;
+    transform: translateY(-2px);
+    animation: pulseBorder 1.5s infinite;
+}
+
+/* ==========================================================================
+   7. BOTONES Y EFECTOS HOVER PREMIUM
+   ========================================================================== */
+button {
+    cursor: pointer;
+    padding: 0.85rem 1.75rem;
+    border-radius: 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    transition: all 0.3s var(--transition-smooth);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Botón Principal (Grabar) */
+#btngrabar {
+    background-color: var(--muted-olive);
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(173, 193, 120, 0.35);
+    margin-top: 0.5rem;
+}
+
+#btngrabar:hover {
+    background-color: #9cb067;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(173, 193, 120, 0.5);
+}
+
+/* Botón Secundario (Cancelar) */
+#btncancelar {
+    background-color: transparent;
+    color: var(--faded-copper);
+    border: 2px solid var(--tea-green);
+    margin-top: 0.5rem;
+}
+
+#btncancelar:hover {
+    background-color: rgba(221, 229, 182, 0.3);
+    color: var(--ash-brown);
+    border-color: var(--muted-olive);
+    transform: translateY(-2px);
+}
+
+/* Botón de Acción Externa (Cargar Nuevo) */
+#btnadd {
+    background-color: var(--faded-copper);
+    color: #ffffff;
+    font-size: 0.85rem;
+    padding: 0.6rem 1.25rem;
+    box-shadow: 0 4px 12px rgba(169, 132, 103, 0.25);
+}
+
+#btnadd:hover {
+    background-color: var(--ash-brown);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(108, 88, 76, 0.35);
+}
+
+/* Efecto feedback activo (Click) común en todos los botones */
+button:active {
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+/* ==========================================================================
+   8. TABLA DE LISTADO MODERNA (Anti-legacy border="1")
+   ========================================================================== */
+.tbllista {
+    width: 100%;
+    border-collapse: collapse;
+    border: none !important; /* Destruye el atributo legacy border="1" */
+    margin-top: 0.5rem;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+/* Forzar responsive en tablas en pantallas muy pequeñas */
+@media (max-width: 576px) {
+    .tbllista {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+.tbllista caption {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--faded-copper);
+    text-align: left;
+    margin-bottom: 0.8rem;
+    padding-left: 0.25rem;
+}
+
+.tbllista th {
+    background-color: var(--tea-green);
+    color: var(--ash-brown);
+    font-weight: 600;
+    text-align: left;
+    padding: 1.1rem 1rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
+    border: none !important;
+}
+
+.tbllista td {
+    padding: 1.1rem 1rem;
+    font-size: 0.95rem;
+    border: none !important;
+    border-bottom: 1px solid var(--vanilla-cream) !important;
+    color: var(--ash-brown);
+}
+
+/* Animación sutil de fila al pasar el mouse */
+.tbllista tbody tr {
+    transition: background-color 0.25s ease;
+}
+
+.tbllista tbody tr:hover {
+    background-color: rgba(221, 229, 182, 0.25);
+    cursor: pointer;
+}
+
+/* Fila especial: Estado vacío */
+#listado tr td[colspan="5"] {
+    text-align: center;
+    color: var(--faded-copper);
+    font-style: italic;
+    padding: 3rem 1rem;
+    background-color: rgba(240, 234, 210, 0.15);
+}
