@@ -3,90 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio JS</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="estilo.css">
+    <title>Portfolio JS</title> <!--[cite: 1] -->
+    
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!--[cite: 1] -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!--[cite: 1] -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"> <!--[cite: 1] -->
+    
+    <!-- Archivo de estilos separado -->
+    <link rel="stylesheet" href="estilo.css"> <!--[cite: 1] -->
 </head>
 <body>
 
 <header>
     <div class="banner">
-        
-        <img src="https://i.pinimg.com/736x/3e/ec/7a/3eec7a4b2499e4a28ae04f9a84261c5a.jpg" alt="banner">
+        <img src="https://i.pinimg.com/736x/3e/ec/7a/3eec7a4b2499e4a28ae04f9a84261c5a.jpg" alt="banner"> <!--[cite: 1] -->
     </div>
-    <h1>Mini Portfolio</h1>
-    <p>PROYECTOS JS + IA FRONTEND</p>
-    <p>Ingeniería de software</p>
-    <p>Otras opciones de comida:</p>
-    <div class="social">
-        <a href="https://4yl3n-proyectos-2do.netlify.app/" target="_blank">
-         <img src="https://64.media.tumblr.com/a0ed2374fe80611cb33d3bd948b8fec1/6dce60d14a409656-a4/s100x200/c266c64af038a43fe24bc039597e51749eca17da.pnj" alt="1">
-        </a>
-         <a href="https://prac-profecionales-4ylenne.netlify.app/" target="_blank">
-         <img src="https://64.media.tumblr.com/beda0b64a1ef2022d5c2083bc1299970/ea1e358ca37a47d8-d0/s100x200/209bda0999e1b3c5fb9d9ec550be193d8c4504f4.pnj" alt="2">
-        </a>
+    
+    <div class="header-titles">
+        <h1>Mini Portfolio</h1> <!--[cite: 1] -->
+        <p class="subtitle">PROYECTOS JS + IA FRONTEND</p> <!--[cite: 1] -->
+        <p class="tagline">Ingeniería de software</p> <!--[cite: 1] -->
+    </div>
+
+    <!-- Nueva sección: Menú Especialidades (Reemplaza a los íconos sueltos) -->
+    <div class="menu-extra">
+        <p class="menu-extra-title">🥢 Otras Especialidades del Chef:</p>
+        <div class="menu-links">
+            <a href="https://4yl3n-proyectos-2do.netlify.app/" target="_blank" class="menu-btn"> <!--[cite: 1] -->
+                <div class="menu-icon">
+                    <img src="https://64.media.tumblr.com/a0ed2374fe80611cb33d3bd948b8fec1/6dce60d14a409656-a4/s100x200/c266c64af038a43fe24bc039597e51749eca17da.pnj" alt="Proyectos 2do Año"> <!--[cite: 1] -->
+                </div>
+                <span>Proyectos 2do Año</span>
+            </a>
+             <a href="https://prac-profecionales-4ylenne.netlify.app/" target="_blank" class="menu-btn"> <!--[cite: 1] -->
+                <div class="menu-icon">
+                    <img src="https://64.media.tumblr.com/beda0b64a1ef2022d5c2083bc1299970/ea1e358ca37a47d8-d0/s100x200/209bda0999e1b3c5fb9d9ec550be193d8c4504f4.pnj" alt="Prácticas Profesionales"> <!--[cite: 1] -->
+                </div>
+                <span>Prácticas Profesionales</span>
+            </a>
+        </div>
     </div>
 </header>
 
 <main>
     <section class="cards">
-        <article class="card">
+        <!-- Tarjeta 1 -->
+        <article class="card fade-in">
             <div class="sticker">
-                <img src="https://64.media.tumblr.com/265a927e639c74ca93728a39979e3899/9d7df93042c6fea7-04/s400x600/ef89c385567cd72918dd6e1b0d03f8f27ae17831.pnj" alt="Sushi Perro">
+                <img src="https://64.media.tumblr.com/265a927e639c74ca93728a39979e3899/9d7df93042c6fea7-04/s400x600/ef89c385567cd72918dd6e1b0d03f8f27ae17831.pnj" alt="Sushi Perro"> <!--[cite: 1] -->
             </div>
-            <h2>Formulario</h2>
-            <p>Formulario con validaciones.</p>
+            <h2>Formulario</h2> <!--[cite: 1] -->
+            <p>Formulario con validaciones.</p> <!--[cite: 1] -->
             <div class="buttons">
-                <a href="./1-validacion-formularios/index.html">Ver Proyecto</a>
+                <a href="./1-validacion-formularios/index.html">Ver Proyecto</a> <!--[cite: 1] -->
             </div>
         </article>
 
-        <article class="card">
+        <!-- Tarjeta 2 -->
+        <article class="card fade-in" style="transition-delay: 0.1s;">
             <div class="sticker">
-                
-                <img src="https://64.media.tumblr.com/03fb2cfd0e45531dcb8ca3b218db45e9/8b7d43952061f348-e8/s100x200/6f1635e6db47ca74fa85b48b722ccd0d1b6d15c9.pnj" alt="Sushi Gato">
+                <img src="https://64.media.tumblr.com/03fb2cfd0e45531dcb8ca3b218db45e9/8b7d43952061f348-e8/s100x200/6f1635e6db47ca74fa85b48b722ccd0d1b6d15c9.pnj" alt="Sushi Gato"> <!--[cite: 1] -->
             </div>
-            <h2>Calculadora</h2>
-            <p>Calculadora funcional.</p>
+            <h2>Calculadora</h2> <!--[cite: 1] -->
+            <p>Calculadora funcional.</p> <!--[cite: 1] -->
             <div class="buttons">
-                <a href="./2-calculadora/index.html">Ver Proyecto</a>
+                <a href="./2-calculadora/index.html">Ver Proyecto</a> <!--[cite: 1] -->
             </div>
         </article>
         
-        <article class="card">
+        <!-- Tarjeta 3 -->
+        <article class="card fade-in" style="transition-delay: 0.2s;">
             <div class="sticker">
-                
-                <img src="https://64.media.tumblr.com/d20e2f8a88f18ad047dacf8dfd7f11fa/8b7d43952061f348-e2/s100x200/aa99f125bde55d6f34f6e8362361276fac2eec56.pnj" alt="Sushi Huella">
+                <img src="https://64.media.tumblr.com/d20e2f8a88f18ad047dacf8dfd7f11fa/8b7d43952061f348-e2/s100x200/aa99f125bde55d6f34f6e8362361276fac2eec56.pnj" alt="Sushi Huella"> <!--[cite: 1] -->
             </div>
-            <h2>Ta-Te-Ti</h2>
-            <p>Juego del tateti (tres en raya).</p>
+            <h2>Ta-Te-Ti</h2> <!--[cite: 1] -->
+            <p>Juego del tateti (tres en raya).</p> <!--[cite: 1] -->
             <div class="buttons">
-                <a href="./3-tateti/index.html">Ver Proyecto</a>
+                <a href="./3-tateti/index.html">Ver Proyecto</a> <!--[cite: 1] -->
             </div>
         </article>
 
-        <article class="card">
+        <!-- Tarjeta 4 -->
+        <article class="card fade-in" style="transition-delay: 0.3s;">
             <div class="sticker">
-                
-                <img src="https://64.media.tumblr.com/ab20b736c395d76b013c8602d2361246/8b7d43952061f348-40/s100x200/19e1054d3bd82ba38f962702790a14c48b3f3637.pnj" alt="Sushi Panda">
+                <img src="https://64.media.tumblr.com/ab20b736c395d76b013c8602d2361246/8b7d43952061f348-40/s100x200/19e1054d3bd82ba38f962702790a14c48b3f3637.pnj" alt="Sushi Panda"> <!--[cite: 1] -->
             </div>
-            <h2>Concesionaria</h2>
-            <p>Formulario para cargar info de autos.</p>
+            <h2>Concesionaria</h2> <!--[cite: 1] -->
+            <p>Formulario para cargar info de autos.</p> <!--[cite: 1] -->
             <div class="buttons">
-                <a href="./4-autos/index.html">Ver Proyecto</a>
+                <a href="./4-autos/index.html">Ver Proyecto</a> <!--[cite: 1] -->
             </div>
         </article>
     </section>
 </main>
 
+<!-- Ondas de Salsa Negra (Salsa de soja) -->
+<div class="soy-sauce-wave">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C63.26,35.79,139.73,59.39,209.73,69.57,247.38,75.05,285.25,66.69,321.39,56.44Z" class="shape-fill"></path>
+    </svg>
+</div>
+
 <footer>
     <div class="footer-banner">
-        <img src="https://i.pinimg.com/1200x/8b/f5/6c/8bf56cfdf28d933ed71e85a9b3f93aa3.jpg" alt="Footer Banner">
+        <img src="https://i.pinimg.com/1200x/8b/f5/6c/8bf56cfdf28d933ed71e85a9b3f93aa3.jpg" alt="Footer Banner"> <!--[cite: 1] -->
     </div>
-    <p>© 2026 - desarrollodesoftware</p>
+    <p>© 2026 - desarrollodesoftware</p> <!--[cite: 1] -->
 </footer>
+
+<!-- Script para la animación al hacer scroll -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+    });
+</script>
 
 </body>
 </html>
